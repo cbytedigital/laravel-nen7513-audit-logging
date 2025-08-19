@@ -1,0 +1,46 @@
+{
+    "name": "cbytedigital/nen7513-audit-logging",
+    "description": "NEN 7513-compliant Laravel package for audit logging",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["laravel", "audit", "nen-7513", "logging"],
+    "authors": [
+        {
+            "name": "CBYTE Digital",
+            "email": "team@cbyte.nl"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "laravel/framework": "^12.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^10.0",
+        "phpunit/phpunit": "^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CbyteDigital\\Nen7513AuditLogging\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CbyteDigital\\Nen7513AuditLogging\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CbyteDigital\\Nen7513AuditLogging\\Providers\\AuditLogServiceProvider"
+            ],
+            "aliases": {
+                "AuditLog": "CbyteDigital\\Nen7513AuditLogging\\Facades\\AuditLog"
+            }
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    /* Expanded row highlight using CSS variables for dynamic config */
+    .audit-row-expanded {
+        background-color: var(--expanded-row-color) !important;
+    }
+    
+    .audit-row-expanded td {
+        background-color: var(--expanded-row-color) !important;
+    }
+    
+    /* Custom checkbox styling */
+    .checkbox-custom:checked {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m13.854 3.646-7.5 7.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6 10.293l7.146-7.147a.5.5 0 0 1 .708.708z'/%3e%3c/svg%3e");
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    
+    /* Copy functionality with hover effects */
+    .copyable-group:hover .copy-btn {
+        opacity: 1;
+    }
+    
+    .copy-btn {
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+    
+    /* Middle truncation */
+    .middle-truncate {
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    
+    /* Prevent table from expanding when details are shown */
+    .audit-table {
+        table-layout: fixed;
+        width: 100%;
+    }
+    
+    .details-row td {
+        max-width: 0; /* Force content to respect container width */
+    }
+    
+    /* Responsive header layout */
+    @media (max-width: 768px) {
+        /* Stack per-page selector and filter button vertically on mobile */
+        .al-flex.al-items-center.al-gap-3 {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0.75rem;
+        }
+        
+        /* Center per-page selector on mobile */
+        .al-flex.al-items-center.al-gap-2 {
+            justify-content: center;
+        }
+        
+        /* Pagination responsive layout */
+        #paginationContainer {
+            flex-direction: column;
+            gap: 1rem;
+            align-items: stretch;
+        }
+        
+        #paginationContainer > div {
+            justify-content: center;
+        }
+    }
+}
+
