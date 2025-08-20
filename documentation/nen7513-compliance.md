@@ -13,7 +13,7 @@ NEN 7513 is the Dutch national standard for healthcare audit logging. It require
 
 ## Compliance Features
 
-### ✅ Required Data Fields
+### Required Data Fields
 
 The package captures all mandatory NEN 7513 fields:
 
@@ -32,13 +32,13 @@ The package captures all mandatory NEN 7513 fields:
 | Network Address | `source_ip` | Client IP address |
 | Authorization | `authorization_*` | Treatment relation, consent |
 
-### ✅ Data Integrity
+### Data Integrity
 
 - **Immutable logs** - Database triggers prevent modification after creation
 - **Integrity hash** - Each log entry includes a cryptographic hash
 - **Secure deletion** - Only authorized cleanup through SecureAuditCleanupService
 
-### ✅ Retention Management
+### Retention Management
 
 ```php
 // NEN 7513 compliant retention
@@ -49,7 +49,7 @@ The package captures all mandatory NEN 7513 fields:
 ],
 ```
 
-### ✅ Actor Traceability
+### Actor Traceability
 
 Complete tracking of who performed each action:
 
@@ -66,7 +66,7 @@ $guestActor = GuestActor::create(['ip_address' => '192.168.1.100']);
 AuditLog::forActor($guestActor)->failed('Unauthorized')->read($patient);
 ```
 
-### ✅ Authorization Tracking
+### Authorization Tracking
 
 Track treatment relationships and consent:
 
@@ -84,7 +84,7 @@ AuditLog::emergency(
 )->read($patient);
 ```
 
-### ✅ Privacy Protection
+### Privacy Protection
 
 Automatic masking compliant with GDPR and NEN 7513:
 
@@ -110,7 +110,7 @@ class Patient extends Model
     protected static function getAuditableActions(): array
     {
         return [
-            'read' => true,     // ✅ Log all access
+            'read' => true,     // Log all access
             'create' => true,
             'update' => true,
             'delete' => true,

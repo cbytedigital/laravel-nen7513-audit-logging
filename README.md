@@ -9,18 +9,18 @@ A comprehensive **NEN 7513-compliant** Laravel package for audit logging, design
 
 This package automatically tracks and logs all user interactions with your Laravel application's data, capturing who, what, when, where, why, and how for complete audit traceability.
 
-## ✨ Key Features
+## Key Features
 
-- 🏥 **NEN 7513 Compliant** - Meets Dutch healthcare logging standards
-- 🤖 **Automatic Logging** - Zero-configuration CRUD operation tracking
-- 🎯 **Flexible API** - Multiple ways to log: automatic, facade, or trait methods
-- 📝 **Rich CREATE Logging** - Configurable full model data logging on creation
-- 🔄 **Parent-Child Logging** - Child model changes automatically log on parent with full context
-- 🔒 **Data Privacy** - Automatic masking of sensitive fields
-- 👤 **Smart Actor Detection** - Automatically identifies users, guests, or system processes
-- ⏰ **Retention Management** - Configurable cleanup with NEN 7513 compliance
-- 🔍 **Advanced Querying** - Powerful filtering and search capabilities
-- 🖥️ **Web Dashboard** - Beautiful, responsive audit log viewer with export functionality
+- **NEN 7513 Compliant** - Meets Dutch healthcare logging standards
+- **Automatic Logging** - Zero-configuration CRUD operation tracking
+- **Flexible API** - Multiple ways to log: automatic, facade, or trait methods
+- **Rich CREATE Logging** - Configurable full model data logging on creation
+- **Parent-Child Logging** - Child model changes automatically log on parent with full context
+- **Data Privacy** - Automatic masking of sensitive fields
+- **Smart Actor Detection** - Automatically identifies users, guests, or system processes
+- **Retention Management** - Configurable cleanup with NEN 7513 compliance
+- **Advanced Querying** - Powerful filtering and search capabilities
+- **Web Dashboard** - Beautiful, responsive audit log viewer with export functionality
 
 ## Installation
 
@@ -61,9 +61,9 @@ class Patient extends Model
 That's it! All CRUD operations are now automatically logged:
 
 ```php
-$patient = Patient::create(['name' => 'John Doe']);     // ✅ Logged
-$patient->update(['name' => 'John Smith']);             // ✅ Logged
-$patient->delete();                                     // ✅ Logged
+$patient = Patient::create(['name' => 'John Doe']);     // Logged
+$patient->update(['name' => 'John Smith']);             // Logged
+$patient->delete();                                     // Logged
 ```
 
 ## Usage Examples
@@ -104,14 +104,14 @@ class ClientHistory extends Model
 
 ## Documentation
 
-- 📥 **[Installation Guide](documentation/installation.md)** - Complete setup instructions
-- 🤖 **[Automatic Logging](documentation/automatic-logging.md)** - Using the Auditable trait
-- 🎯 **[Manual Logging](documentation/manual-logging.md)** - Using the AuditLog facade
-- 🔄 **[Parent-Child Logging](documentation/parent-child-logging.md)** - Advanced relationship logging
-- ⚙️ **[Configuration](documentation/configuration.md)** - All configuration options
-- 🖥️ **[Web Dashboard](documentation/web-dashboard.md)** - Setting up the audit log viewer
-- 🏥 **[NEN 7513 Compliance](documentation/nen7513-compliance.md)** - Healthcare standards compliance
-- 📚 **[API Reference](documentation/api-reference.md)** - Complete method documentation
+- **[Installation Guide](documentation/installation.md)** - Complete setup instructions
+- **[Automatic Logging](documentation/automatic-logging.md)** - Using the Auditable trait
+- **[Manual Logging](documentation/manual-logging.md)** - Using the AuditLog facade
+- **[Parent-Child Logging](documentation/parent-child-logging.md)** - Advanced relationship logging
+- **[Configuration](documentation/configuration.md)** - All configuration options
+- **[Web Dashboard](documentation/web-dashboard.md)** - Setting up the audit log viewer
+- **[NEN 7513 Compliance](documentation/nen7513-compliance.md)** - Healthcare standards compliance
+- **[API Reference](documentation/api-reference.md)** - Complete method documentation
 
 
 ## Support

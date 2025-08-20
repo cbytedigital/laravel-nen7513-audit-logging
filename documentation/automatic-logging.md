@@ -29,10 +29,10 @@ class Patient extends Model
 These operations are automatically logged:
 
 ```php
-$patient = Patient::create(['name' => 'John']);     // ✅ CREATE
-$patient->update(['name' => 'Jane']);               // ✅ UPDATE  
-$patient->delete();                                 // ✅ DELETE
-$patient = Patient::find(1);                       // ⚠️ READ (if enabled)
+$patient = Patient::create(['name' => 'John']);     // CREATE
+$patient->update(['name' => 'Jane']);               // UPDATE  
+$patient->delete();                                 // DELETE
+$patient = Patient::find(1);                       // READ (if enabled)
 ```
 
 ## Configuration Methods
