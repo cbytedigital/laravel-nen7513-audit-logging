@@ -13,34 +13,23 @@
     </td>
     
     <td class="al-px-6 al-py-4 al-whitespace-nowrap">
-        <span class="action-badge al-text-sm al-font-medium 
-             {{ strtolower($log->action) === 'c'
-                 ? 'al-text-green-600'
-                 : (strtolower($log->action) === 'r'
-                     ? 'al-text-blue-600'
-                     : (strtolower($log->action) === 'u'
-                         ? 'al-text-yellow-600'
-                         : (strtolower($log->action) === 'd'
-                             ? 'al-text-red-600'
-                             : (strtolower($log->action) === 'e'
-                                 ? 'al-text-purple-600'
-                                 : 'al-text-gray-600')))) }}">
-            {{ strtolower($log->action) === 'c'
-                ? 'CREATE'
-                : (strtolower($log->action) === 'r'
-                    ? 'READ'
-                    : (strtolower($log->action) === 'u'
-                        ? 'UPDATE'
-                        : (strtolower($log->action) === 'd'
-                            ? 'DELETE'
-                            : (strtolower($log->action) === 'e'
-                                ? 'EXECUTE'
-                                : strtoupper($log->action))))) }}
+        @php
+            $actionData = match(strtolower($log->action)) {
+                'c' => ['name' => 'CREATE', 'class' => 'al-text-green-600'],
+                'r' => ['name' => 'READ', 'class' => 'al-text-blue-600'],
+                'u' => ['name' => 'UPDATE', 'class' => 'al-text-yellow-600'],
+                'd' => ['name' => 'DELETE', 'class' => 'al-text-red-600'],
+                'e' => ['name' => 'EXECUTE', 'class' => 'al-text-purple-600'],
+                default => ['name' => strtoupper($log->action), 'class' => 'al-text-gray-600']
+            };
+        @endphp
+        <span class="action-badge al-text-sm al-font-medium {{ $actionData['class'] }}">
+            {{ $actionData['name'] }}
         </span>
     </td>
     
     <td class="al-px-6 al-py-4">
-        <div class="actor-name al-text-sm al-text-gray-700">{{ $log->actor_name }}</div>
+        <div class="actor-name al-text-sm al-text-gray-700">{{ $log->actor_name }} - {{ $log->actor_role }}</div>
     </td>
     
     <td class="al-px-6 al-py-4">
@@ -52,7 +41,15 @@
     
     <td class="al-px-6 al-py-4 al-whitespace-nowrap al-text-center">
         <div class="al-flex al-items-center al-justify-center">
-            <i class="outcome-indicator fas fa-{{ strtolower($log->outcome) === 'success' ? 'check-circle al-text-green-500' : (strtolower($log->outcome) === 'failure' ? 'times-circle al-text-red-500' : 'exclamation-triangle al-text-yellow-500') }} al-text-lg"></i>
+            @php
+                $outcomeIcon = match(strtolower($log->outcome)) {
+                    'success' => 'fas fa-check-circle al-text-green-500',
+                    'failure' => 'fas fa-times-circle al-text-red-500',
+                    'emergency' => 'fas fa-exclamation-triangle al-text-yellow-500',
+                    default => 'fas fa-question-circle al-text-gray-500'
+                };
+            @endphp
+            <i class="outcome-indicator {{ $outcomeIcon }} al-text-lg"></i>
         </div>
     </td>
     
