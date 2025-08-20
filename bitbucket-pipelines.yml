@@ -6,6 +6,12 @@ pipelines:
         clone:
           enabled: false
         script:
-          - git clone --bare git@bitbucket.org:cbytedigital/laravel-nen7513-audit-logging.git
+          - mkdir -p ~/.ssh
+          - cp /opt/atlassian/pipelines/agent/ssh/id_rsa ~/.ssh/id_rsa
+          - chmod 600 ~/.ssh/id_rsa
+          - ssh-keyscan bitbucket.org >> ~/.ssh/known_hosts
+          - ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+          - GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no' git clone --bare git@bitbucket.org:cbytedigital/laravel-nen7513-audit-logging.git
           - cd laravel-nen7513-audit-logging.git
-          - git push --mirror git@github.com:cbytedigital/laravel-nen7513-audit-logging.git
+          - GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no' git push --mirror git@github.com:cbytedigital/laravel-nen7513-audit-logging.git
