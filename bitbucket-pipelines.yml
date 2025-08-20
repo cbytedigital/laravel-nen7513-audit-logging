@@ -1,0 +1,11 @@
+pipelines:
+  default:
+    - step:
+        name: Sync GitHub Mirror
+        image: alpine/git:latest
+        clone:
+          enabled: false
+        script:
+          - git clone --bare git@bitbucket.org:cbytedigital/laravel-nen7513-audit-logging.git
+          - cd laravel-nen7513-audit-logging.git
+          - git push --mirror git@github.com:cbytedigital/laravel-nen7513-audit-logging.git
