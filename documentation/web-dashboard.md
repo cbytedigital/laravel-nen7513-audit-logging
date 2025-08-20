@@ -54,10 +54,9 @@ Gate::define('view-audit-logs', function ($user) {
 - **Outcome** - Filter by success/failure
 
 ### Export Functionality
-- **CSV format** - For spreadsheet analysis
-- **Excel format** - With formatting
-- **JSON format** - Raw data export
-- Export respects current filters
+- **CSV format** - For spreadsheet analysis and data import
+- Export respects current filters and includes active filter information
+- Generates timestamped filenames for easy identification
 
 ### Search
 - Global search across all fields
