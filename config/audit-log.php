@@ -86,11 +86,16 @@ return [
     | Authorization Configuration
     |--------------------------------------------------------------------------
     |
-    | Default authorization configuration
+    | Default authorization configuration for audit logs
     |
     */
     'authorization' => [
         'default_protocol' => 'default',
+        
+        // Default authorization checks - set to true to enable by default for all audit logs
+        'default_authorization_check' => false,        // General authorization check
+        'default_treatment_relation_check' => false,   // Treatment relation check (healthcare specific)
+        'default_consent_check' => false,              // Consent check (GDPR/privacy specific)
     ],
 
     /*
