@@ -121,7 +121,52 @@ The package keeps the first character of each word and replaces the rest with as
 ```php
 'authorization' => [
     'default_protocol' => 'default',
+    
+    // Default authorization checks - set to true to enable by default for all audit logs
+    'default_authorization_check' => false,        // General authorization check
+    'default_treatment_relation_check' => false,   // Treatment relation check (healthcare specific)
+    'default_consent_check' => false,              // Consent check (GDPR/privacy specific)
 ],
+```
+
+### Authorization Check Types
+
+The package supports three types of authorization checks that can be enabled by default:
+
+1. **General Authorization Check** (`default_authorization_check`)
+   - Tracks whether proper authentication/authorization was verified before the action
+   - Useful for general security compliance
+
+2. **Treatment Relation Check** (`default_treatment_relation_check`) 
+   - Healthcare-specific: tracks whether the actor has a treatment relationship with the patient
+   - Required for NEN 7513 compliance in healthcare environments
+
+3. **Consent Check** (`default_consent_check`)
+   - GDPR/privacy-specific: tracks whether proper consent was obtained for the action
+   - Important for privacy regulation compliance
+
+### Per-Environment Authorization Settings
+
+```php
+'authorization' => [
+    'default_authorization_check' => env('AUDIT_DEFAULT_AUTH_CHECK', false),
+    'default_treatment_relation_check' => env('AUDIT_DEFAULT_TREATMENT_CHECK', false),
+    'default_consent_check' => env('AUDIT_DEFAULT_CONSENT_CHECK', false),
+],
+```
+
+Then in `.env`:
+
+```env
+# Development - loose authorization tracking
+AUDIT_DEFAULT_AUTH_CHECK=false
+AUDIT_DEFAULT_TREATMENT_CHECK=false
+AUDIT_DEFAULT_CONSENT_CHECK=false
+
+# Production - strict authorization tracking
+AUDIT_DEFAULT_AUTH_CHECK=true
+AUDIT_DEFAULT_TREATMENT_CHECK=true  
+AUDIT_DEFAULT_CONSENT_CHECK=true
 ```
 
 ## UI Configuration
