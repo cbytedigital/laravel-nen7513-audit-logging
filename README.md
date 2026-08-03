@@ -130,11 +130,11 @@ composer test
 php vendor/bin/phpunit
 ```
 
-## Postcardware
+## Reviewware
 
-This package is completely free to use. If it makes it to your production environment we would highly appreciate you sending us a postcard from your hometown! 👏🏼
+This package is completely free to use. If it makes it to your production environment, we'd love it if you left us a Google review! ⭐
 
-Our address is: CBYTE Digital B.V., Parallelweg 27, 5223AL 's-Hertogenbosch, Netherlands.
+You can find us here: [Google review CBYTE](https://g.page/r/CYy5Ay3iwGdZEAE/review)
 
 ## License
 
